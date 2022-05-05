@@ -1,5 +1,7 @@
 "use strict"
 
+/* Coded by: www.github.com/Macover/encryption-to-string */
+
 /*
    * Finish the validation of the input. 
    * Add the tags to the array
@@ -8,11 +10,35 @@
    * Code more styles to the UI.
 */
 
+const containerForm = document.getElementById('containerForm');
+const inputsContainer = document.createElement('div');
+inputsContainer.classList.add('form__inputs-container');
+
+const createInputs = () =>{
+    for (let i = 0; i < 3; i++) {
+        const formInput = document.createElement('input');
+        formInput.classList.add('form__input')
+        formInput.setAttribute('id',`input${i + 1}`);
+        formInput.setAttribute('maxlength',2);
+
+        formInput.addEventListener("input",(e)=>{
+            if(isNaN(formInput.value)){
+                sendAlertMessage('Error: No se aceptan letras');
+                clearInput(formInput);
+            }            
+        })
+        inputsContainer.appendChild(formInput);
+    }    
+}
+
+createInputs();
+containerForm.appendChild(inputsContainer);
+
 
 
 /* CUSTOM METHODS */
 
-const clearInput = () => dataInput.value = "";
+const clearInput = (input) => input.value = "";
 
 const sendAlertMessage = (message, bool) => {
     console.log(message)
