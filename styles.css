@@ -70,9 +70,21 @@ body{
     flex-grow: 2;
 }
 .container__stage-box{
+    display: flex;
+    flex-direction: row;
     width: 100%;
     min-height: 5em;
     border: 1px solid teal;
+    padding: 10px;
+    box-sizing: border-box;
+    gap: 10px 8px;
+    flex-wrap: wrap;
+}
+.stage-box__tag{    
+    height: max-content;
+    border: 1px solid red;
+    padding: 0 2px;
+    border-radius: 30px;
 }
 .container__table-result{
     border: 1px solid green;
