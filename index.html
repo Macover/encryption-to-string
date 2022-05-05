@@ -12,23 +12,22 @@
         <div class="container__table-reference"></div>
         <h1 class="container__title">Decodificador de mensaje cifrado.</h1>
         <div class="container__alert-messages">
-            <span>Error: No se ocupan letras.</span>
+            <span id="UIMessage" class="isDisabled"></span>
         </div>
         <div id="containerForm" class="container__form">            
             <div class="form__buttons-container">
                 <button id="addStage" class="form__button-add"></button>
-                <button class="form__button">Decodificar.</button>
+                <button id="decodeButton" class="form__button">Decodificar.</button>
             </div>            
         </div>
-        <div class="container__stage-box">
-            
-            <div class="stage-box__tag">
+        <div class="container__stage-box">            
+            <!-- <div class="stage-box__tag">
                 <span class="tag__text">33,53,56</span>
-                <!-- <button class="tag__button">X</button> -->
-            </div>        
-            <div class="stage-box__tag">
-                <span class="tag__text">33,53,56</span>                
-            </div>
+                <button class="tag__button">X</button>
+            </div>         -->            
+        </div>
+        <div class="container__text-result">
+            <span>El mensaje es: <i id="resultMessage"></i></span>
         </div>
         <div class="container__table-result">
             <table class="table-result">

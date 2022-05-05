@@ -9,12 +9,15 @@
 input {
     outline: none;
 }
+button{
+    cursor: pointer;
+}
 
 :root {
     --backgroundColor: linear-gradient(106.37deg,
-            #27534c 29.63%,
-            #54533b 51.55%,
-            #2b4140 90.85%);
+            #535027 29.63%,
+            #543b3b 51.55%,
+            #3c2b41 90.85%);
 
     --glass: rgba(255, 255, 255, 0.54);
 
@@ -39,6 +42,8 @@ body {
     background: var(--backgroundColor);
 }
 
+.isDisabled{ display: none; }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -60,13 +65,17 @@ body {
 
 .container__alert-messages {
     width: 100%;
+    min-height: 55px;    
     display: flex;
-    justify-content: center;
+    flex-direction: column;        
 }
 
 .container__alert-messages span {
-    background-color: rgba(255, 0, 0, 0.44);
-    color: #fff;
+    width: max-content;
+    margin: auto;
+    background-color: rgba(255, 0, 0, 0.09);
+    color: #f00;
+    font-weight: 700;
     border-radius: 2rem;
     padding: .5em 1em;
 }
@@ -119,9 +128,11 @@ body {
     margin-right: 10px;
     border: 1px solid var(--black);
     border-radius: 50%;
+    transition: filter .5s;
 }
 .form__button-add:hover{
-    width: 40px;
+    filter: brightness(120%);
+    box-shadow: 0px 5px 10px #000;
 }
 .form__button {
     background-color: var(--gray);
@@ -145,9 +156,8 @@ body {
     box-sizing: border-box;
     gap: 10px 8px;
     flex-wrap: wrap;
-    border-radius: 1rem;
+    border-radius: 1rem;    
 }
-
 .stage-box__tag {
     height: max-content;
     background-color: var(--gray);
@@ -155,7 +165,10 @@ body {
     padding: 0 8px;
     border-radius: 30px;
 }
-
+.container__text-result{
+    font-size: 18px;
+    text-align: center;    
+}
 .table-result {
     width: 100%;
     display: flex;
