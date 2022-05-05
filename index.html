@@ -11,12 +11,19 @@
     <div class="container">
         <div class="container__table-reference"></div>
         <h1 class="container__title">Decodificador de mensaje cifrado.</h1>
+        <div class="container__alert-messages">
+            <span>Error: No se ocupan letras.</span>
+        </div>
         <div class="container__form">
-            <input type="text" class="form__input" />
-            <button class="form__button">Verificar.</button>
+            <input id="dataInput" type="text" class="form__input" />
+            <button class="form__button-add">+</button>
+            <button class="form__button">Decodificar.</button>
+        </div>
+        <div class="container__stage-box">
+
         </div>
         <div class="container__table-result">
-            <table class="result-table">
+            <table class="table-result">
                 <thead>
                     <tr>
                         <td>Result</td>
@@ -41,14 +48,10 @@
                         <td>e</td>
                         <td>d</td>
                     </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>.</td>
-                    </tr>
-                </tfoot>
+                </tbody>                
             </table>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
