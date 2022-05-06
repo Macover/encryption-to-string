@@ -15,14 +15,14 @@ button{
 
 :root {
     --backgroundColor: linear-gradient(106.37deg,
-            #535027 29.63%,
-            #543b3b 51.55%,
-            #3c2b41 90.85%);
+            #273b53 29.63%,
+            #4a3b54 51.55%,
+            #412b39 90.85%);
 
     --glass: rgba(255, 255, 255, 0.54);
 
     --whiteColor: rgba(255, 255, 255, 0.34);
-    --gray: #788097;
+    --gray: #273b53;
     --black: #242d49;
 
     --greenBackground: rgb(145 254 159 / 47%);
@@ -33,20 +33,48 @@ button{
 }
 
 body {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: var(--backgroundColor);
+    background-repeat: no-repeat;
 }
 
 .isDisabled{ display: none; }
 .isEnabledFlex { display: flex;}
 
-.container {
+/* @media (max-width: 885px) {
+    body{
+        background: #000;
+    }
+    .container__form{
+        flex-wrap: wrap-reverse;
+    }
+    .form__inputs-container {
+        flex-grow: 1;       
+    }
+    .form__buttons-container {
+        flex-grow: 1;
+    }    
+    .container__stage-box {        
+        flex-grow: 1;
+    }
+    .container__alert-messages{
+        flex-grow: 1;
+    }
+    .container__title {  
+        background-color: #000;      
+        font-size: 1px;        
+        padding: 0;        
+    }
+} */
+
+.container {    
     display: flex;
+    min-height: 100px;
     flex-direction: column;
     gap: 1.5em;
     padding: 20px;
@@ -129,11 +157,11 @@ body {
     margin-right: 10px;
     border: 1px solid var(--black);
     border-radius: 50%;
-    transition: filter .5s;
+    transition: filter, box-shadow .75s;
 }
 .form__button-add:hover{
     filter: brightness(120%);
-    box-shadow: 0px 5px 10px #000;
+    box-shadow: 0px 0px 10px var(--gray);
 }
 .form__button {
     background-color: var(--gray);
@@ -141,7 +169,7 @@ body {
     flex-grow: 2;
     border-radius: .5rem;
     color: #fff;
-    transition: filter 0.5s;
+    transition: all .75s;
 }
 .form__button:hover {
     filter: brightness(120%);
