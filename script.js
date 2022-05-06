@@ -1,15 +1,4 @@
-"use strict"
-
-/* Coded by: www.github.com/Macover/encryption-to-string */
-
-/*
-   * Finish the validation of the input. 
-   * Add the tags to the stage (OPTIONAL: with a button to eliminate it.)
-   * Extract each array from the stage and calculate their value.
-   * Put all of the values into an new array to show the final result in order to put it into the UI.
-   * Code more styles to the UI.
-*/
-
+"use strict" /* Coded by: www.github.com/Macover/encryption-to-string */
 
 /* CREATE THE INPUTS */
 
@@ -74,7 +63,7 @@ addStageButton.addEventListener('click', () => {
 
         const isValidArray = newArray.some(num => num < 0 || num > 27);
 
-        if (isValidArray) {
+        if (false) {
             sendAlertMessage('Error: Los valores introducidos son incorrectos.', 'error')
         } else {
             globalArray.push(newArray)
@@ -97,31 +86,41 @@ addStageButton.addEventListener('click', () => {
 
 const decodeButton = document.getElementById('decodeButton');
 const resultMessage = document.getElementById('resultMessage');
+const tableResult = document.querySelector('.table-result');
 
 
 decodeButton.addEventListener("click", () => {
 
-    let string = '';
+    const input = document.querySelectorAll('.form__input');
 
-    const tbodyResult = document.getElementById('tbodyResul');
-    const trElementRow1 = document.createElement('tr');
-    const trElementRow2 = document.createElement('tr');
+    if (globalArray.length === 0) {
+        sendAlertMessage(`Error: No hay datos en el "staged" `, 'error')
+    } else {
 
-    for (let i = 0; i < globalArray.length; i++) {
-        for (let j = 0; j < 3; j++) {
-            string += getCharacter(globalArray[i][j]);
+        tableResult.classList.replace("isDisabled","isEnabledFlex");
 
-            const td1 = document.createElement('td');
-            const td2 = document.createElement('td');
-            td1.textContent = globalArray[i][j];
-            td2.textContent = getCharacter(globalArray[i][j]);
-            trElementRow1.appendChild(td1);
-            trElementRow2.appendChild(td2);
+        let string = '';
+
+        const tbodyResult = document.getElementById('tbodyResul');
+        const trElementRow1 = document.createElement('tr');
+        const trElementRow2 = document.createElement('tr');
+
+        for (let i = 0; i < globalArray.length; i++) {
+            for (let j = 0; j < 3; j++) {
+                string += getCharacter(globalArray[i][j]);
+
+                const td1 = document.createElement('td');
+                const td2 = document.createElement('td');
+                td1.textContent = globalArray[i][j];
+                td2.textContent = getCharacter(globalArray[i][j]);
+                trElementRow1.appendChild(td1);
+                trElementRow2.appendChild(td2);
+            }
         }
+        tbodyResult.innerHTML = trElementRow1.innerHTML
+        tbodyResult.innerHTML += trElementRow2.innerHTML
+        resultMessage.innerHTML = `El mensaje es: "${string}"`
     }
-    tbodyResult.innerHTML = trElementRow1.innerHTML
-    tbodyResult.innerHTML += trElementRow2.innerHTML
-    resultMessage.innerHTML = `"${string}"`
 })
 
 
@@ -156,6 +155,7 @@ const getCharacter = number => {
     if (number == '25') return 'x';
     if (number == '26') return 'y';
     if (number == '27') return 'z';
+    if (number == '28') return '.';
 }
 
 const clearInput = (input) => input.value = "";

@@ -43,6 +43,7 @@ body {
 }
 
 .isDisabled{ display: none; }
+.isEnabledFlex { display: flex;}
 
 .container {
     display: flex;
@@ -166,12 +167,15 @@ body {
     border-radius: 30px;
 }
 .container__text-result{
+    min-height: 25px;    
     font-size: 18px;
     text-align: center;    
 }
+.container__table-result{ 
+    min-height: 100px;
+}
 .table-result {
-    width: 100%;
-    display: flex;
+    width: 100%;    
     flex-direction: column;
     background-color: var(--whiteColor);
     border-radius: 1rem;
