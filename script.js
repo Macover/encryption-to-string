@@ -1,6 +1,6 @@
 "use strict" /* Coded by: www.github.com/Macover/encryption-to-string */
 
-/* CREATE THE INPUTS */
+/* CREATE INPUTS */
 
 const containerForm = document.getElementById('containerForm');
 const inputsContainer = document.createElement('div');
@@ -9,16 +9,17 @@ inputsContainer.classList.add('form__inputs-container');
 
 const createInputs = () => {
     for (let i = 0; i < 3; i++) {
+        
         const formInput = document.createElement('input');
         formInput.classList.add('form__input')
         formInput.setAttribute('id', `input${i + 1}`);
-        formInput.setAttribute('maxlength', 2);
+        formInput.setAttribute('maxlength', 3);
 
-        formInput.addEventListener("keyup", (e) => {
-            if (!isANumber(e.key)) {
+        formInput.addEventListener("keyup", (e) => {                             
+            if (!isANumber(e.key)){
                 sendAlertMessage('Error: Los input no aceptan letras', 'error');
-                clearInput(formInput);
-            }
+                clearInput(formInput);            
+            }                
         })
         inputsContainer.appendChild(formInput);
     }
@@ -61,9 +62,10 @@ addStageButton.addEventListener('click', () => {
             newArray.push(Math.round(sum));
         }
 
-        const isValidArray = newArray.some(num => num < 0 || num > 27);
+        console.log("new", newArray);
+        const isValidArray = newArray.some(num => num < 0 || num > 28);
 
-        if (false) {
+        if (isValidArray) {
             sendAlertMessage('Error: Los valores introducidos son incorrectos.', 'error')
         } else {
             globalArray.push(newArray)
@@ -89,18 +91,13 @@ const resultMessage = document.getElementById('resultMessage');
 const tableResult = document.querySelector('.table-result');
 
 
-decodeButton.addEventListener("click", () => {
-
-    const input = document.querySelectorAll('.form__input');
+decodeButton.addEventListener("click", () => {    
 
     if (globalArray.length === 0) {
         sendAlertMessage(`Error: No hay datos en el "staged" `, 'error')
     } else {
-
         tableResult.classList.replace("isDisabled","isEnabledFlex");
-
         let string = '';
-
         const tbodyResult = document.getElementById('tbodyResul');
         const trElementRow1 = document.createElement('tr');
         const trElementRow2 = document.createElement('tr');
@@ -122,7 +119,6 @@ decodeButton.addEventListener("click", () => {
         resultMessage.innerHTML = `El mensaje es: "${string}"`
     }
 })
-
 
 /* CUSTOM METHODS */
 
@@ -173,6 +169,6 @@ const sendAlertMessage = (message, typeOfMessage) => {
     UIMessage.textContent = message;
 }
 const isANumber = (string) => {
-    let ascii = string.toUpperCase().charCodeAt(0);
-    return (ascii >= 48 && ascii <= 57) || ascii == 45;
+    if (string === 'Tab') { return true }
+    else { let ascii = string.toUpperCase().charCodeAt(0); return (ascii >= 48 && ascii <= 57) || ascii == 45;}    
 }
