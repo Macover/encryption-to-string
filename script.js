@@ -157,15 +157,33 @@ const getCharacter = number => {
 const clearInput = (input) => input.value = "";
 
 const sendAlertMessage = (message, typeOfMessage) => {
+    
     UIMessage.classList.remove('isDisabled');
     if (typeOfMessage === 'error') {
+        /* ANIMATION */
+        UIMessage.style.animationName = 'messageAnimationError';
+        UIMessage.style.animationTimingFunction = 'linear';
+        UIMessage.style.animationIterationCount = '1';
+        UIMessage.style.animationFillMode = 'forwards';
+        UIMessage.style.animationDuration = '.5s';
+
         UIMessage.style.backgroundColor = 'rgba(255, 0, 0, 0.09)';
         UIMessage.style.color = '#c00';
     }
     if (typeOfMessage === 'success') {
+        /* ANIMATION */
+        UIMessage.style.animationName = 'messageAnimationSuccess';
+        UIMessage.style.animationTimingFunction = 'linear';
+        UIMessage.style.animationIterationCount = '1';
+        UIMessage.style.animationFillMode = 'forwards';
+        UIMessage.style.animationDuration = '.5s';
+
         UIMessage.style.backgroundColor = 'rgba(0, 255, 0, 0.09)';
         UIMessage.style.color = '#0c0';
     }
+    setTimeout(()=>{
+        UIMessage.style.animationName = 'none';
+    },500)
     UIMessage.textContent = message;
 }
 const isANumber = (string) => {
