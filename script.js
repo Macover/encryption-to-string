@@ -15,7 +15,7 @@ const createInputs = () => {
         formInput.setAttribute('id', `input${i + 1}`);
         formInput.setAttribute('maxlength', 3);
 
-        formInput.addEventListener("keyup", (e) => {                             
+        formInput.addEventListener("keyup", (e) => {                                  
             if (!isANumber(e.key)){
                 sendAlertMessage('Error: Los input no aceptan letras', 'error');
                 clearInput(formInput);            
@@ -187,6 +187,6 @@ const sendAlertMessage = (message, typeOfMessage) => {
     UIMessage.textContent = message;
 }
 const isANumber = (string) => {
-    if (string === 'Tab') { return true }
+    if (string === 'Tab' || string === 'Backspace' || string === 'Enter') { return true }
     else { let ascii = string.toUpperCase().charCodeAt(0); return (ascii >= 48 && ascii <= 57) || ascii == 45;}    
 }
