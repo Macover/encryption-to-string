@@ -1,18 +1,16 @@
 <?php
-/* 
-$mysql = new mysqli("localhost","","","prueba");
+    namespace codificador;
 
-if($mysql->connect_errno){
-    echo "Fallo al conectar a MySQL (" . $mysql->connect__errno . ")" . $mysql->connect__error;
-}
+    class Conexion{
+        public $conexion;
+        public function __construct(){
+            $host = "127.0.0.1";
+            $user = "root";
+            $pass = "";
+            $bd = "decodificador"
+            $this->conexion = mysqli_connect($host, $user, $pass, $bd);
+            mysql_query($this->conexion,"SET NAMES 'utf8");
+        }
+    }
 
-echo $mysql->host_info . "\n";
- */
-/* $mysql = new mysqli("127.0.0.1","usuario","contraseña","nombreBD", puerto); */
-$mysql = new mysqli("127.0.0.1","root","","prueba",3306);
-
-if($mysql->connect_errno){
-    echo "Fallo al conectar a MySQL: (" . $mysql->connection_errno . ") ". $mysql->connect_error;
-}
-echo $mysql->host_info . "\n"
 ?>
