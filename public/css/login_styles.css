@@ -23,37 +23,57 @@ button{
     --black: #242d49;    
     --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);   
 }
+body{
+    background: var(--backgroundColor);
+}
 .container{
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;        
 }
 .container__login-card{
     min-width: 300px;
-    min-height: 500px;
-    border: 1px solid red;
+    height: max-content;    
     border-radius: 2rem;
     padding: 20px;
+    background: var(--glass);
 }
 .container__title{
+    color: var(--black);
     font-size: 30px;
     text-align: center;
     margin: 20px 0;    
 }
 .container__form{
-    width: 100%;
-    height: 250px;
-    border: 1px solid red;
+    width: 100%;        
     display: flex;
+    justify-content:space-around;
     flex-direction: column;
     padding: 40px 0;
     gap: 40px;    
 }
 .form__input-usuario, .form__input-password{
-    padding: 20px;
+    padding: 15px;
+    border-radius: 3rem;
+    border: none;
+    background: var(--glassItem);
 }
 .form__submit{
+    background: var(--primaryColor);
+    color: #fff;
+    border-radius: 3rem;
+    border: none;
     padding: 10px;
+    transition: filer, box-shadow 1s;
+}
+.form__submit:hover{
+    filter: brightness(120%);
+    box-shadow: 0px 0px 10px var(--primaryColor);
+}
+.container__span{
+    text-align: center;
+    color: var(--black);
+    font-size: 15px;
 }
