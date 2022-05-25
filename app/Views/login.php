@@ -10,7 +10,12 @@
 <body>
     <div class="container">
         <div class="container__login-card">
-            <h1 class="container__title">Iniciar sesión</h1>            
+            <h1 class="container__title">Iniciar sesión</h1>
+            <?php
+                if(isset($estatus)){
+                    echo $estatus;
+                }
+            ?>            
             <form method="POST" action="index.php?controller=Usuario&action=verificaDatosLogin" class="container__form">
                 <input 
                     class="form__input-usuario"

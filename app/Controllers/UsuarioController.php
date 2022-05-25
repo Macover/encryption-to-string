@@ -7,7 +7,6 @@ use decodificador\Conexion;
 
 class UsuarioController
 {
-
     public function __construct()
     {
         if($_GET["action"] == "decodificador"){
@@ -16,6 +15,7 @@ class UsuarioController
                 header("location: /index.php?controller=Usuario&action=login");
             }
         }
+        $numIntentos = 0;
     }
     function login(){
 
@@ -30,13 +30,23 @@ class UsuarioController
             $nombreUsuario = $_POST["nombreUsuario"];
             $contrasenia = $_POST["pass"];
             $verificar = Usuario::VerificarLogin($nombreUsuario, $contrasenia);            
+            
+            // if($numIntentos < 5){
+                
+            // }else{
+            //         $estatus = "Numero de intentos max";
+            //         require 'app/Views/login.php';
+            // }
+            
             if (!$verificar){
                 $estatus = "Datos Incorrectos";
+                $numIntentos++;
                 require 'app/Views/login.php';
             }else{
                 $_SESSION["loginEntra"] = $verificar;
                 $this->decodificador();
             }
+            
         }
     }
 

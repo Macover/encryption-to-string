@@ -210,7 +210,7 @@ body {
 .form__button-add {
     width: 38px;    
     background-color: var(--glassItem);
-    background: url('public/icons/plus-icon.png');    
+    background: url('../icons/plus-icon.png');    
     background-repeat: no-repeat;
     background-position: center;
     margin-right: 10px;
