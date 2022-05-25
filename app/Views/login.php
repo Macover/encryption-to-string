@@ -8,9 +8,14 @@
     <title>Login</title>
 </head>
 <body>
+
+    <!-- Introducir una cadena que se codifica con root13 y despues codificar por
+    el de la matriz que se habia hecho, con la misma matriz de las hojas. -->
+
     <div class="container">
         <div class="container__login-card">
             <h1 class="container__title">Iniciar sesión</h1>
+            <input id="inputHidden" type="hidden" value="0"/>
             <?php
                 if(isset($estatus)){
                     echo $estatus;
@@ -36,5 +41,10 @@
             </form>
         </div>
     </div>
+    <script>
+        console.log("asda")
+        //const inputHidden1 = document.getElementById('inputHidden');
+        //console.log(inputHidden.value);
+    </script>
 </body>
 </html>

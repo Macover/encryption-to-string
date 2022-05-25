@@ -15,7 +15,6 @@ class UsuarioController
                 header("location: /index.php?controller=Usuario&action=login");
             }
         }
-        $numIntentos = 0;
     }
     function login(){
 
@@ -25,19 +24,13 @@ class UsuarioController
     function verificaDatosLogin(){
 
         if (!isset($_POST["nombreUsuario"]) || !isset($_POST["pass"])){
-            require 'app/Views/login.php';
+            
         }else{
             $nombreUsuario = $_POST["nombreUsuario"];
             $contrasenia = $_POST["pass"];
             $verificar = Usuario::VerificarLogin($nombreUsuario, $contrasenia);            
             
-            // if($numIntentos < 5){
-                
-            // }else{
-            //         $estatus = "Numero de intentos max";
-            //         require 'app/Views/login.php';
-            // }
-            
+
             if (!$verificar){
                 $estatus = "Datos Incorrectos";
                 require 'app/Views/login.php';
@@ -48,7 +41,6 @@ class UsuarioController
             
         }
     }
-
     public function logout(){
 
         if(isset($_SESSION["loginEntra"])){
