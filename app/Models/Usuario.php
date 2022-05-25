@@ -14,8 +14,7 @@ class Usuario extends Conexion
 
     static function VerificarLogin($nombreUsuario, $contrasenia){
 
-        $conexion = new Conexion();
-        // remplazar nombre de tabla por: "persona" cuando la vista registro este funcionando.
+        $conexion = new Conexion();        
         $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM usuarios WHERE nombre_usuario = ? 
         AND contrasenia = ?");
         $pre->bind_param("ss",$nombreUsuario, $contrasenia);
@@ -23,12 +22,13 @@ class Usuario extends Conexion
         $resultado = $pre->get_result();
         return $resultado->fetch_object();
     }
-    function registraUsuario(){
+    /* function registraUsuario(){
         $prepara = mysqli_prepare($this->conexion, "INSERT INTO usuarios(nombre_usuario,correo,contrasenia)
          VALUES  (?,?,?)");
         $prepara->bind_param("sss", $this->nombreUsuario,$this->correo, $this->contrasenia);
         $prepara->execute();
-    }
+    } */
+
 }
 
 ?>

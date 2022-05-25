@@ -11,7 +11,7 @@
     <div class="container">
         <div class="container__login-card">
             <h1 class="container__title">Crear una nueva cuenta.</h1>
-            <form action="#" class="container__form">
+            <form method="POST" action="index.php?controller=Usuario&action=verificaDatosRegistro" class="container__form">
                 <input 
                     class="form__input-usuario"
                     type="text"
