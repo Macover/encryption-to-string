@@ -40,7 +40,6 @@ class UsuarioController
             
             if (!$verificar){
                 $estatus = "Datos Incorrectos";
-                $numIntentos++;
                 require 'app/Views/login.php';
             }else{
                 $_SESSION["loginEntra"] = $verificar;
