@@ -2,8 +2,8 @@
 
 require 'app/Models/Conexion.php';
 require 'app/Models/Usuario.php';
-use curp\Usuario;
-use curp\Conexion;
+use decodificador\Usuario;
+use decodificador\Conexion;
 
 class UsuarioController
 {
@@ -29,8 +29,7 @@ class UsuarioController
         }else{
             $nombreUsuario = $_POST["nombreUsuario"];
             $contrasenia = $_POST["pass"];
-            $verificar = Usuario::VerificarLogin($nombreUsuario, $contrasenia);
-            echo $verificar;            
+            $verificar = Usuario::VerificarLogin($nombreUsuario, $contrasenia);            
             if (!$verificar){
                 $estatus = "Datos Incorrectos";
                 require 'app/Views/login.php';

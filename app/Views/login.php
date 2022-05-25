@@ -17,12 +17,14 @@
                     type="text" 
                     placeholder="Usuario"
                     name="nombreUsuario"
+                    require
                     />
                 <input 
                     class="form__input-password"
                     type="password"
                     placeholder="Contraseña"
-                    name="pass"                    
+                    name="pass"  
+                    require                  
                     />
                 <button class="form__submit" type="submit">Entrar</button>
                 <span class="container__span">Para crear una nueva cuenta click <a href="registro.php" class="span__a">aquí</a></span>
