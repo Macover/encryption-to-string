@@ -49,46 +49,27 @@ class UsuarioController
         echo "sesion cerrada";
     }
 
-    /* function registro(){
+    function registro(){
 
         require 'app/Views/registro.php';
         $this->verificaDatosRegistro();
 
-    } */
-    /* function verificaDatosRegistro(){
+    }
+    function verificaDatosRegistro(){
 
-        $registroPersona = new Curp();
-        if (!isset($_POST["primer_nombreReg"]) || !isset($_POST["segundo_nombreReg"])
-            || !isset($_POST["apellido_paternoReg"]) || !isset($_POST["apellido_maternoReg"])
-            || !isset($_POST["diaReg"]) || !isset($_POST["mesReg"]) || !isset($_POST["anioReg"])
-            || !isset($_POST["generoReg"]) || !isset($_POST["estado_nacimientoReg"])
-            || !isset($_POST["correoReg"]) || !isset($_POST["contraseniaReg"])){
+        $usuario = new Usuario();
+        if (!isset($_POST["usuarioReg"]) || !isset($_POST["correoReg"])
+            || !isset($_POST["passReg"])){
 
         }else{
-
-            $registroPersona->primer_nombre = $_POST["primer_nombreReg"];
-            $registroPersona->segundo_nombre = $_POST["segundo_nombreReg"];
-            $registroPersona->apellido_paterno = $_POST["apellido_paternoReg"];
-            $registroPersona->apellido_materno = $_POST["apellido_maternoReg"];
-            $registroPersona->dia=$_POST["diaReg"];
-            $registroPersona->mes = $_POST["mesReg"];
-            $registroPersona->anio = $_POST["anioReg"];
-            $registroPersona->genero = $_POST["generoReg"];
-            $registroPersona->estado_nacimiento = $_POST["estado_nacimientoReg"];
-            $registroPersona->correo = $_POST["correoReg"];
-            $registroPersona->contrasenia = $_POST["contraseniaReg"];
-            $registroPersona->registraUsuario();
-            $id = Curp::extraer_id($_POST["correoReg"]);
-            $curpCompleta = $registroPersona->curpCompleta();
-            // metodo enviar curp y id a tabla persona_curp
-            //metodo($id,$curp);
-            $registroPersona->mandarIdYCurp($id->id_persona,$curpCompleta);
-            $this->perfil();
-            echo "Su curp es: ".$registroPersona->curpCompleta();
+            $usuario->nombreUsuario = $_POST["usuarioReg"];
+            $usuario->correo = $_POST["correoReg"];
+            $usuario->contrasenia = $_POST["passReg"];            
+            $usuario->registraUsuario();  
+            $estatus = "Usuario registrado";                                              
+            require 'app/Views/login.php';   
         }
-
-
-    } */
+    }
     
     function decodificador(){       
         require 'app/Views/decodificador.php';

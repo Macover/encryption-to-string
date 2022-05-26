@@ -37,7 +37,7 @@
                     require                  
                     />
                 <button class="form__submit" type="submit">Entrar</button>
-                <span class="container__span">Para crear una nueva cuenta click <a href="registro.php" class="span__a">aquí</a></span>
+                <span class="container__span">Para crear una nueva cuenta click <a href="index.php?controller=Usuario&action=registro" class="span__a">aquí</a></span>
             </form>
         </div>
     </div>

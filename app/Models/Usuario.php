@@ -22,12 +22,12 @@ class Usuario extends Conexion
         $resultado = $pre->get_result();
         return $resultado->fetch_object();
     }
-    /* function registraUsuario(){
+    function registraUsuario(){
         $prepara = mysqli_prepare($this->conexion, "INSERT INTO usuarios(nombre_usuario,correo,contrasenia)
          VALUES  (?,?,?)");
         $prepara->bind_param("sss", $this->nombreUsuario,$this->correo, $this->contrasenia);
         $prepara->execute();
-    } */
+    }
 
 }
 
